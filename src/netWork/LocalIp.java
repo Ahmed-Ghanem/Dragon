@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ahmed
+ * @author Ahmed Ghanem
  */
 public class LocalIp implements Ip {
 

@@ -9,6 +9,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import utils.ConstantManager;
 
 /**
  *
@@ -17,22 +19,28 @@ import java.util.logging.Logger;
 public class RealIp implements Ip {
 
     private String realIp;
+    private boolean realFlag = true;
 
     public RealIp() {
         try {
-            URL url = new java.net.URL("http://whatismyip.com/automation/n09230945.asp");
+            URL url = new java.net.URL(ConstantManager.REAL_IP_SITE);
             HttpURLConnection Conn = (HttpURLConnection) url.openConnection();
             InputStream InStream = Conn.getInputStream();
             InputStreamReader Isr = new InputStreamReader(InStream);
             BufferedReader br = new BufferedReader(Isr);
             realIp = br.readLine();
         } catch (IOException ex) {
-            Logger.getLogger(RealIp.class.getName()).log(Level.SEVERE, null, ex);
+            realFlag = false;
         }
+
     }
 
     @Override
     public String getIp() {
         return realIp;
+    }
+
+    public boolean getFlag() {
+        return realFlag;
     }
 }

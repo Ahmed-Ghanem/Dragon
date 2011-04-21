@@ -18,4 +18,8 @@ public class ConstantManager {
      * Application icon
      */
     public final static String DRAGON_ICON = "images/dragon.png";
+    /**
+     * get real IP
+     */
+    public final static String REAL_IP_SITE = "http://whatismyip.com/automation/n09230945.asp";
 }
