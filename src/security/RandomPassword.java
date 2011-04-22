@@ -1,9 +1,10 @@
-package utils;
+package security;
 
 /**
  *
  * @author Ahmed ghanem
  */
+import utils.*;
 import java.util.Random;
 
 public class RandomPassword {

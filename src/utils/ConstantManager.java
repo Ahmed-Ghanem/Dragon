@@ -33,5 +33,8 @@ public class ConstantManager {
     /**
      * Return Dragon web site URL.
      */
-    public final static String DRAGON_URL = "http://ja-dragon.blogspot.com/";
+    public final static String DRAGON_URL = "http://ja-dragon.blogspot.com/";/**
+     * Return image temp string
+     */
+    public final static String IMAGE_TEMP_STRING = "temp/tmp.png";
 }

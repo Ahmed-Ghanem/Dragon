@@ -3,7 +3,7 @@ package tasks;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import netWork.IpFactory;
-import utils.RandomPassword;
+import security.RandomPassword;
 
 /**
  *
