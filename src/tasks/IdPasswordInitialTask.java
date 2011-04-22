@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package tasks;
 
 import javax.swing.JLabel;
@@ -11,7 +7,7 @@ import utils.RandomPassword;
 
 /**
  *
- * @author ahmed
+ * @author Ahmed Ghanem
  */
 public class IdPasswordInitialTask implements Runnable {
 

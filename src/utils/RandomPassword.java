@@ -12,7 +12,7 @@ public class RandomPassword {
 
     public RandomPassword(int passwordLength) {
         Random randomNumber = new Random();
-        char password[] = new char[15];
+        char password[] = new char[passwordLength];
         for (int i = 0; i < 15; i++) {
             int value = randomNumber.nextInt(200);
             password[i] = (char) value;
