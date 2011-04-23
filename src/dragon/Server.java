@@ -4,12 +4,9 @@
  * */
 package Dragon;
 
-import dragon.listener.DataListener;
+import dragon.ClientServer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -18,21 +15,19 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import netWork.LocalIp;
 import ui.chat.DragonChat;
 import utils.ConstantManager;
 
-public class Server extends Thread {
+public class Server extends Thread implements ClientServer {
 
     private int remotePort;
     private ObjectInputStream inStream;
     private ObjectOutputStream outStream;
     private ServerSocket server;
     private Socket client;
-    private DataListener dListener;
     private DragonChat dChat; //appear chat frame
     private LocalIp hostName; //chat user name
     private String userName;
@@ -40,14 +35,12 @@ public class Server extends Thread {
     private JTextField chatField;
     private JButton sendButton;
 
-    public Server(DataListener dListener) {
-
-        this(ConstantManager.REMOTE_PORT, dListener);
+    public Server() {
+        this(ConstantManager.REMOTE_PORT);
     }
 
-    public Server(int remotePort, DataListener dListener) {
+    public Server(int remotePort) {
         this.remotePort = remotePort;
-        this.dListener = dListener;
 
     }
 
@@ -71,7 +64,7 @@ public class Server extends Thread {
 
     }
 
-    private String recieveData() {
+    public String recieveData() {
         String msg = null;
         try {
             msg = (String) inStream.readObject();
@@ -122,14 +115,6 @@ public class Server extends Thread {
         this.chatArea = a;
         this.chatField = f;
         this.sendButton = b;
-        /*chatField.addKeyListener(new KeyAdapter() {
-
-            public void keyTyped(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    messageData();
-                }
-            }
-        });*/
         sendButton.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {

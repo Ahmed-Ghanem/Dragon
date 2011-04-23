@@ -1,6 +1,6 @@
 package main;
 
-import com.sun.corba.se.spi.activation.Server;
+import Dragon.Server;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
@@ -14,7 +14,7 @@ import ui.Login;
 public class Main {
 
     public static void main(String[] args) {
-        try {
+     try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);

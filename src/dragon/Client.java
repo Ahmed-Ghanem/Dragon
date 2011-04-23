@@ -4,6 +4,7 @@
  * */
 package Dragon;
 
+import dragon.ClientServer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -19,7 +20,7 @@ import netWork.LocalIp;
 import ui.chat.DragonChat;
 import utils.ConstantManager;
 
-public class Client extends Thread {
+public class Client extends Thread implements ClientServer {
 
     private ObjectInputStream inStream;
     private ObjectOutputStream outStream;
@@ -69,7 +70,7 @@ public class Client extends Thread {
         }
     }
 
-    private String recieveData() {
+    public String recieveData() {
         String msg = null;
         try {
             msg = (String) inStream.readObject();
@@ -127,15 +128,9 @@ public class Client extends Thread {
                 messageData();
             }
         });
-      /*  chatField.addKeyListener(new KeyAdapter() {
-   
-            public void keyTyped(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_ENTER)
-                    messageData();
-            }
-        });*/  
     }
-    public void messageData() {
+
+    private void messageData() {
         String message = null;
         message = userName + ": " + chatField.getText() + "\n";
         send(message);

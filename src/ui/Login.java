@@ -7,7 +7,6 @@ package ui;
 
 import Dragon.Client;
 import Dragon.Server;
-import dragon.listener.DataListener;
 import java.awt.Image;
 import java.awt.Toolkit;
 import tasks.IdPasswordInitialTask;
@@ -392,11 +391,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         serverEnableConnect(false);
-        Server s = new Server(new DataListener() {
-            public void dataRecieved(Object data) {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-        });
+        Server s = new Server();
         s.start();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
