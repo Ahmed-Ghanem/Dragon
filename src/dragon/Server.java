@@ -4,7 +4,7 @@
  * */
 package Dragon;
 
-import dragon.ClientServer;
+import dragon.chat.ClientServer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -21,7 +21,7 @@ import netWork.LocalIp;
 import ui.chat.DragonChat;
 import utils.ConstantManager;
 
-public class Server extends Thread implements ClientServer {
+public class Server extends ClientServer implements Runnable  {
 
     private int remotePort;
     private ObjectInputStream inStream;
@@ -56,33 +56,12 @@ public class Server extends Thread implements ClientServer {
             chatInit();
 
             while (true) {
-                chatArea.append(recieveData());
+                chatArea.append(recieveData(inStream));
             }
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }
-
-    public String recieveData() {
-        String msg = null;
-        try {
-            msg = (String) inStream.readObject();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-        return msg;
-    }
-
-    public void send(String data) {
-        try {
-            outStream.writeObject(data);
-            outStream.flush();
-            outStream.reset();
-        } catch (IOException ex) {
-        }
     }
 
     public ObjectInputStream getInputStream() {
@@ -121,13 +100,11 @@ public class Server extends Thread implements ClientServer {
                 messageData();
             }
         });
-
     }
-
     public void messageData() {
         String message = null;
         message = userName + ": " + chatField.getText() + "\n";
-        send(message);
+        send(message, outStream);
         chatArea.append(message);
         chatField.setText("");
     }
