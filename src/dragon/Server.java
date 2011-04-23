@@ -1,10 +1,10 @@
+package Dragon;
 /*
  * Author Mohammed Allaw
  * 
  * */
-package Dragon;
 
-import dragon.chat.ClientServer;
+import dragon.ClientServer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -21,7 +21,7 @@ import netWork.LocalIp;
 import ui.chat.DragonChat;
 import utils.ConstantManager;
 
-public class Server extends ClientServer implements Runnable  {
+public class Server extends ClientServer implements Runnable {
 
     private int remotePort;
     private ObjectInputStream inStream;
@@ -101,6 +101,7 @@ public class Server extends ClientServer implements Runnable  {
             }
         });
     }
+
     public void messageData() {
         String message = null;
         message = userName + ": " + chatField.getText() + "\n";

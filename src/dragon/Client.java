@@ -1,10 +1,10 @@
+package Dragon;
 /*
  * Author Mohammed Allaw
  * 
  * */
-package Dragon;
 
-import dragon.chat.ClientServer;
+import dragon.ClientServer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -19,7 +19,7 @@ import ui.chat.DragonChat;
 import utils.ConstantManager;
 
 public class Client extends ClientServer implements Runnable {
-    
+
     private ObjectInputStream inStream;
     private ObjectOutputStream outStream;
     private Socket client;
@@ -31,27 +31,27 @@ public class Client extends ClientServer implements Runnable {
     private JTextArea chatArea;
     private JTextField chatField;
     private JButton sendButton;
-    
+
     public Client(String IP) {
         this(IP, ConstantManager.REMOTE_PORT);
-        
+
     }
-    
+
     public Client(String IP, int remotePort) {
-        
+
         this.IP = IP;
         this.remotePort = remotePort;
-        
+
     }
-    
+
     @Override
     public void run() {
         establishConnection();
     }
-    
+
     private void establishConnection() {
-        
-        
+
+
         try {
             client = new Socket(IP, remotePort);
             outStream = new ObjectOutputStream(client.getOutputStream());
@@ -67,45 +67,45 @@ public class Client extends ClientServer implements Runnable {
             ex.printStackTrace();
         }
     }
-    
+
     public ObjectInputStream getInputStream() {
         return inStream;
     }
-    
+
     public ObjectOutputStream getOutputStream() {
         return outStream;
     }
-    
+
     public void closeConnection() {
         try {
             outStream.close();
             inStream.close();
             client.close();
         } catch (IOException ex) {
-            
-            ex.printStackTrace();    
+
+            ex.printStackTrace();
         }
     }
-    
+
     public void chatInit() {
         dChat = new DragonChat();
         dChat.show();
         initRefComponents(dChat.getChatArea(), dChat.getChatField(), dChat.getSendButton());
-        
+
     }
-    
+
     public void initRefComponents(JTextArea a, JTextField f, JButton b) {
         this.chatArea = a;
         this.chatField = f;
         this.sendButton = b;
         sendButton.addActionListener(new ActionListener() {
-            
+
             public void actionPerformed(ActionEvent e) {
                 messageData();
             }
         });
     }
-    
+
     private void messageData() {
         String message = null;
         message = userName + ": " + chatField.getText() + "\n";

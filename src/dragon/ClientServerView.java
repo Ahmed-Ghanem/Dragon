@@ -1,4 +1,4 @@
-package dragon.chat;
+package dragon;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
