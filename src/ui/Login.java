@@ -1,24 +1,20 @@
-/*
- * Login.java
- *
- * Created on Apr 15, 2011, 7:29:08 PM
- */
 package ui;
 
-import Dragon.Client;
-import Dragon.Server;
+import dragon.Client;
+import dragon.Server;
 import java.awt.Image;
 import java.awt.Toolkit;
 import tasks.IdPasswordInitialTask;
 import utils.ConstantManager;
 
 /**
- *
+ * dragon main screen 
  * @author Ahmed Ghanem
  */
 public class Login extends javax.swing.JFrame {
 
     private Image mainIcon = Toolkit.getDefaultToolkit().getImage(ConstantManager.DRAGON_ICON);
+    //get ID and Password thread used as busy icon 
     private IdPasswordInitialTask initialtask;
 
     /** Creates new form Login */
@@ -36,6 +32,7 @@ public class Login extends javax.swing.JFrame {
         new Thread(initialtask).start();
     }
 
+    // get references from chat compoentns
     public void ref() {
         initialtask.componentsRef(jTextField1, jTextField2, jLabel6);
     }

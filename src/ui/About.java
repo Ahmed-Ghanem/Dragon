@@ -1,9 +1,5 @@
 package ui;
 
-/**
- * About.java.
- * Created on 27-Feb-2011, 12:1:01AM.
- */
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Image;
@@ -17,10 +13,7 @@ import utils.ConstantManager;
 
 /**
  * responsible for show about dialog.
- * @author Ahmed Gahenm.
- * class Methods:-
- * 1- hideAllPanels() => hide all panels on the dialog.
- * 2- initGui() => GUI initialization.
+ * @author Ahmed Gahenm
  */
 public class About extends javax.swing.JDialog {
 
@@ -37,7 +30,8 @@ public class About extends javax.swing.JDialog {
         jPanel1.setVisible(true);
         initGui();
     }
-    public void initGui(){
+
+    public void initGui() {
         jTextArea1.setEnabled(false);
         jTextArea2.setEnabled(false);
         jTextArea3.setEnabled(false);
@@ -299,8 +293,9 @@ public class About extends javax.swing.JDialog {
 
     private void sphinxUrlMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sphinxUrlMouseReleased
         try {
-            URI uri = new URI(ConstantManager.DRAGON_URL);
+            URI uri = null;
             Desktop desktop = null;
+            uri = new URI(ConstantManager.DRAGON_URL);
             if (Desktop.isDesktopSupported()) {
                 desktop = Desktop.getDesktop();
             }

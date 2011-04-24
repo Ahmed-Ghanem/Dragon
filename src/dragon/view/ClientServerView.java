@@ -1,4 +1,4 @@
-package dragon;
+package dragon.view;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

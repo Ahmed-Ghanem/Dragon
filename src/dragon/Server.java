@@ -1,10 +1,10 @@
-package Dragon;
+package dragon;
 /*
  * Author Mohammed Allaw
  * 
  * */
 
-import dragon.ClientServer;
+import dragon.view.ClientServer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import dragon.view.ClientServer;
 import netWork.LocalIp;
 import ui.chat.DragonChat;
 import utils.ConstantManager;

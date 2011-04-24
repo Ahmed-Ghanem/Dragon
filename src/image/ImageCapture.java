@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import utils.ConstantManager;
 
 /**
- *
+ * used as imaging center component
  * @author Ahmed Ghanem
  */
 public class ImageCapture {
@@ -23,6 +23,10 @@ public class ImageCapture {
     public ImageCapture() {
     }
 
+    /**
+     * 
+     * @return screen shot as image icon object
+     */
     public ImageIcon createScreenImage() {
         Robot robot = null;
         File temp = null;
@@ -30,6 +34,7 @@ public class ImageCapture {
         try {
             robot = new Robot();
             buffImage = robot.createScreenCapture(
+                    // screen hight and width
                     new Rectangle((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth(),
                     (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight()));
             temp = new File(ConstantManager.IMAGE_TEMP_STRING);

@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * local Ip
  * @author Ahmed Ghanem
  */
 public class LocalIp implements Ip {

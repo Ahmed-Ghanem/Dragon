@@ -1,13 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * DragonChat.java
- *
- * Created on Apr 21, 2011, 10:44:33 PM
- */
 package ui.chat;
 
 import java.awt.Dimension;
@@ -19,12 +9,13 @@ import javax.swing.JTextField;
 import utils.ConstantManager;
 
 /**
- *
+ * dragon chat screen
  * @author Ahmed Ghanem
  */
 public class DragonChat extends javax.swing.JFrame {
-
+    
     private Image mainIcon = Toolkit.getDefaultToolkit().getImage(ConstantManager.DRAGON_ICON);
+    // to set the chat screen on right button 
     Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 
     /** Creates new form DragonChat */
@@ -36,6 +27,7 @@ public class DragonChat extends javax.swing.JFrame {
 
     public void initUi() {
         setIconImage(mainIcon);
+        //set the chat screen
         setLocation((int)dimension.getWidth()-293,(int)dimension.getHeight()-290);
     }
     public JButton getSendButton(){

@@ -1,11 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package utils;
 
 /**
- *
+ * Contains all dragon constants.
  * @author Ahmed Ghanem
  */
 public class ConstantManager {

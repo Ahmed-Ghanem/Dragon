@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import utils.ConstantManager;
 
 /**
- *
+ * real ip
  * @author Ahmed Ghanem
  */
 public class RealIp implements Ip {
@@ -30,6 +30,7 @@ public class RealIp implements Ip {
             BufferedReader br = new BufferedReader(Isr);
             realIp = br.readLine();
         } catch (IOException ex) {
+            //there is no internet access
             realFlag = false;
         }
 

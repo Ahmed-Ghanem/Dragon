@@ -6,7 +6,7 @@ import netWork.IpFactory;
 import security.RandomPassword;
 
 /**
- *
+ * run this thread to get real or local IP during UI processing
  * @author Ahmed Ghanem
  */
 public class IdPasswordInitialTask implements Runnable {
@@ -16,7 +16,7 @@ public class IdPasswordInitialTask implements Runnable {
     private JLabel waitingStatus;
     private IpFactory ip;
     private RandomPassword randomPassword;
-
+    // use chat references <components>
     public void componentsRef(JTextField f1, JTextField f2, JLabel l) {
         this.id = f1;
         this.password = f2;
@@ -25,7 +25,9 @@ public class IdPasswordInitialTask implements Runnable {
 
     public void run() {
         initObj();
+        // get IP according to Ip interface
         id.setText(ip.getSuitableIp().getIp());
+        //generate a rendom password
         password.setText(randomPassword.getPassword());
 
     }
